@@ -18,10 +18,10 @@ Filter application/pdf  0  -
   #media "DPTRP1" 202mm 270mm
 
   // Supported page sizes
-  *MediaSize DPTRP1
-  MediaSize A4
+  *MediaSize A4
   MediaSize A5
   MediaSize Letter
+  MediaSize DPTRP1
 
   // Supported resolutions
   *Resolution k 8 0 0 0 "207dpi/207 DPI"
@@ -36,10 +36,10 @@ Filter application/pdf  0  -
   #media "DPTCP1" 172mm 230mm
 
   // Supported page sizes
-  *MediaSize DPTCP1
   MediaSize A4
-  MediaSize A5
+  *MediaSize A5
   MediaSize Letter
+  MediaSize DPTCP1
 
   // Supported resolutions
   *Resolution k 8 0 0 0 "227dpi/227 DPI"
