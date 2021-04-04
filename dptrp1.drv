@@ -1,0 +1,49 @@
+// Include standard font and media definitions
+#include <font.defs>
+#include <media.defs>
+
+// List the fonts that are supported, in this case all standard fonts...
+Font *
+
+// Manufacturer, model name, and version
+Manufacturer "Sony"
+Version 1.0
+
+// Each filter provided by the driver...
+Filter application/pdf  0  -
+
+{
+  // DPT-RP1
+  ModelName "DPT-RP1"
+  #media "DPTRP1" 202mm 270mm
+
+  // Supported page sizes
+  *MediaSize DPTRP1
+  MediaSize A4
+  MediaSize A5
+  MediaSize Letter
+
+  // Supported resolutions
+  *Resolution k 8 0 0 0 "207dpi/207 DPI"
+
+  // Specify the name of the PPD file we want to generate...
+  PCFileName "dptrp1.ppd"
+}
+
+{
+  // DPT-CP1
+  ModelName "DPT-CP1"
+  #media "DPTCP1" 172mm 230mm
+
+  // Supported page sizes
+  *MediaSize DPTCP1
+  MediaSize A4
+  MediaSize A5
+  MediaSize Letter
+
+  // Supported resolutions
+  *Resolution k 8 0 0 0 "227dpi/227 DPI"
+
+  // Specify the name of the PPD file we want to generate...
+  PCFileName "dptcp1.ppd"
+}
