@@ -1,4 +1,4 @@
-# DPT-RP1 CUSP printer
+# DPT-RP1 CUPS printer
 
 
 # Installation
