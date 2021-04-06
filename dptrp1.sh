@@ -6,6 +6,7 @@ jobtitle=${3}
 jobcopies=${4}
 joboptions=${5}
 jobfile=${6}
+dptrp1path=
 
 export DPT_KEY=/home/${cupsuser}/.dpapp/privatekey.dat
 export DPT_ID=/home/${cupsuser}/.dpapp/deviceid.dat
@@ -24,7 +25,6 @@ case ${#} in
         exit 0
         ;;
     5)
-        echo "test" > /tmp/test5.txt
         # backend needs to read from stdin if number of arguments is 5
         cat - > ${outname}
 
@@ -37,9 +37,8 @@ case ${#} in
         ;;
 
     6)
-        echo ${DEVICE_URI} > /tmp/test6.txt
         cat ${6} > ${outname}
-        dptrp1 --addr=${DEVICEADDR} \
+        ${dptrp1path} --addr=${DEVICEADDR} \
             --client=${DPT_ID} \
             --key=${DPT_KEY} \
             upload ${outname} Document/Printed/

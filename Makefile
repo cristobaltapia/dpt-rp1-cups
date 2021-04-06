@@ -1,4 +1,6 @@
-.PHONY: install, uninstall, build, add, remove
+.PHONY: install, uninstall, add, remove
+
+DPTRP1PATH=$(shell which dptrp1)
 
 build: ppd/dptrp1.ppd
 
@@ -8,6 +10,7 @@ ppd/dptrp1.ppd: dptrp1.drv
 install: ppd/dptrp1.ppd
 	install ppd/dptrp1.ppd /usr/share/cups/model/
 	install dptrp1.sh /usr/lib/cups/backend/dptrp1
+	sed -i 's:dptrp1path=:dptrp1path=$(DPTRP1PATH):g' /usr/lib/cups/backend/dptrp1
 	chmod 700 /usr/lib/cups/backend/dptrp1
 
 uninstall:
