@@ -15,7 +15,10 @@ export DPT_ID=/home/${cupsuser}/.dpapp/deviceid.dat
 DEVICEADDR=$(echo ${DEVICE_URI} | awk -F ":" {'print $2'})
 
 printtime=$(date +%Y-%m-%d_%H-%M)
-sanitized_jobtitle="$(echo ${jobtitle} | tr [[:blank:]:/%\&=+?\\\\#\'\`\´\*] _ | sed 's/ü/u/g;s/ä/a/g;s/ö/o/g;s/Ü/U/g;s/Ä/A/g;s/Ö/O/g;s/{\\ß}/ss/g' | cut -f 1 -d '.' ).pdf"
+sanitized_jobtitle="$(echo ${jobtitle} | \
+	tr [[:blank:]:/%\&=+?\\\\#\'\`\´\*] _ | \
+	sed 's/ü/u/g;s/ä/a/g;s/ö/o/g;s/Ü/U/g;s/Ä/A/g;s/Ö/O/g;s/{\\ß}/ss/g' | \
+	iconv -c -f utf-8 -t ascii - | rev | cut -f 2- -d '.' | rev ).pdf"
 outname=/tmp/${printtime}_${sanitized_jobtitle}
 
 case ${#} in
