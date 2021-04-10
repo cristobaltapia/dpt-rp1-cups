@@ -18,7 +18,10 @@ printtime=$(date +%Y-%m-%d_%H-%M)
 sanitized_jobtitle="$(echo ${jobtitle} | awk -F '/' '{print $NF}' | \
 	tr [[:blank:]:/%\&=+?\\\\#\'\`\´\*] _ | \
 	sed 's/ü/u/g;s/ä/a/g;s/ö/o/g;s/Ü/U/g;s/Ä/A/g;s/Ö/O/g;s/{\\ß}/ss/g' | \
-	iconv -c -f utf-8 -t ascii - | rev | cut -f 2- -d '.' | rev ).pdf"
+	iconv -c -f utf-8 -t ascii - )"
+
+sanitized_jobtitle="$(echo ${sanitized_jobtitle} | \
+  sed 's/.pdf$|.docx$|//gI').pdf"
 outname=/tmp/${printtime}_${sanitized_jobtitle}
 
 # Hacky way to determine whether the original pdf file should be
