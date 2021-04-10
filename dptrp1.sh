@@ -12,7 +12,7 @@ export DPT_KEY=/home/${cupsuser}/.dpapp/privatekey.dat
 export DPT_ID=/home/${cupsuser}/.dpapp/deviceid.dat
 
 # Get the device URL
-DEVICEADDR=$(echo ${DEVICE_URI} | awk -F ":" {'print $2'})
+DEVICEADDR=$(echo ${DEVICE_URI} | awk -F ":" '{print $2}')
 
 printtime=$(date +%Y-%m-%d_%H-%M)
 sanitized_jobtitle="$(echo ${jobtitle} | awk -F '/' '{print $NF}' | \
