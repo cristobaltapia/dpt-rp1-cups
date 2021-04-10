@@ -53,6 +53,32 @@ function copy_original_or_not() {
   fi
 }
 
+# Hacky way to determine whether the original pdf file should be
+# transfered to the DPT-RP1 or the file ceated by CUPS. If only
+# some pages of the file should be printed, then the CUPS-generated
+# file is used
+function copy_original_or_not() {
+  # Confirm that there is an original file as pdf
+  if test -f "${jobtitle}"; then
+    # Compare extension
+    extension=$(basename ${jobtitle} | awk -F '.' '{print $NF}')
+    if [ "$extension" = "pdf" ]; then
+      # Compare number of pages
+      npages_a=$(pdfinfo ${jobtitle} | awk '/^Pages:/ {print $2}')
+      npages_b=$(pdfinfo ${jobfile} | awk '/^Pages:/ {print $2}')
+      if [ "${npages_a}" = "${npages_b}" ]; then
+        echo 1
+      else
+        echo 0
+      fi
+    else
+      echo 0
+    fi
+  else
+    echo 0
+  fi
+}
+
 case ${#} in
     0)
         # this case is for "backend discovery mode"
