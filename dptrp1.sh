@@ -23,7 +23,7 @@ sanitized_jobtitle="$(echo ${jobtitle} | awk -F '/' '{print $NF}' | \
 	iconv -c -f utf-8 -t ascii - )"
 
 sanitized_jobtitle="$(echo ${sanitized_jobtitle} | \
-  sed 's/.pdf$|.docx$|//gI').pdf"
+  sed 's/.pdf$\|.docx$//gI').pdf"
 outname=/tmp/${printtime}_${sanitized_jobtitle}
 docname=${printtime}_${sanitized_jobtitle}
 
