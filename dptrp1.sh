@@ -37,6 +37,9 @@ case ${#} in
             upload ${outname} Document/Printed/
 
         rm ${outname}
+
+        # Send notification to user
+        sudo -u ${cupsuser} DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/${useruuid}/bus notify-send 'DPT-RP1' "${docname} Printed!"
         ;;
 
     6)
@@ -47,6 +50,9 @@ case ${#} in
             upload ${outname} Document/Printed/
 
         rm ${outname}
+
+        # Send notification to user
+        sudo -u ${cupsuser} DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/${useruuid}/bus notify-send 'DPT-RP1' "${docname} Printed!"
         ;;
 esac
 echo 1>&2
