@@ -8,6 +8,8 @@ joboptions=${5}
 jobfile=${6}
 dptrp1path=
 
+useruuid=$(id -u ${cupsuser})
+
 export DPT_KEY=/home/${cupsuser}/.dpapp/privatekey.dat
 export DPT_ID=/home/${cupsuser}/.dpapp/deviceid.dat
 
@@ -20,6 +22,7 @@ sanitized_jobtitle="$(echo ${jobtitle} | awk -F '/' '{print $NF}' | \
 	sed 's/ü/u/g;s/ä/a/g;s/ö/o/g;s/Ü/U/g;s/Ä/A/g;s/Ö/O/g;s/{\\ß}/ss/g' | \
 	iconv -c -f utf-8 -t ascii - | rev | cut -f 2- -d '.' | rev ).pdf"
 outname=/tmp/${printtime}_${sanitized_jobtitle}
+docname=${printtime}_${sanitized_jobtitle}
 
 case ${#} in
     0)
