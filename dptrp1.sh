@@ -71,7 +71,8 @@ case ${#} in
         rm ${outname}
 
         # Send notification to user
-        sudo -u ${cupsuser} DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/${useruuid}/bus notify-send 'DPT-RP1' "${docname} Printed!"
+        sudo -u ${cupsuser} DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/${useruuid}/bus notify-send.sh 'DPT-RP1' "${docname} Printed!" \
+          --action="Show in device":"dptrp1 --addr=${DEVICEADDR} --client=${DPT_ID} --key=${DPT_KEY} display-document Document/Printed/${docname}"
         ;;
 
     6)
@@ -91,7 +92,8 @@ case ${#} in
         rm ${outname}
 
         # Send notification to user
-        sudo -u ${cupsuser} DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/${useruuid}/bus notify-send 'DPT-RP1' "${docname} Printed!"
+        sudo -u ${cupsuser} DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/${useruuid}/bus notify-send.sh 'DPT-RP1' "${docname} Printed!" \
+          --action="Show in device":"dptrp1 --addr=${DEVICEADDR} --client=${DPT_ID} --key=${DPT_KEY} display-document Document/Printed/${docname}"
         ;;
 esac
 echo 1>&2
