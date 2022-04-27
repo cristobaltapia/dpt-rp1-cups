@@ -1,5 +1,7 @@
 # DPT-RP1 CUPS backend
 
+![DPT-RP1-cups](icons/dptrp1.png)
+
 This CUPS backend allows to print directly to your DPT-RP1 or DPT-CP1 devices.
 I took the idea from the equivalent backend for the [remarkable](https://github.com/ofosos/scratch/tree/master/remarkable-cups).
 To use this you need to first install and configure [dpt-rp1-py](https://github.com/janten/dpt-rp1-py).
