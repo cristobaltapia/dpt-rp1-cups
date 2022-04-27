@@ -72,6 +72,7 @@ case ${#} in
 
         # Send notification to user
         sudo -u ${cupsuser} DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/${useruuid}/bus notify-send.sh 'DPT-RP1' "${docname} Printed!" \
+          --icon=input-tablet \
           --action="Show in device":"dptrp1 --addr=${DEVICEADDR} --client=${DPT_ID} --key=${DPT_KEY} display-document Document/Printed/${docname}"
         ;;
 
@@ -93,6 +94,7 @@ case ${#} in
 
         # Send notification to user
         sudo -u ${cupsuser} DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/${useruuid}/bus notify-send.sh 'DPT-RP1' "${docname} Printed!" \
+          --icon=input-tablet \
           --action="Show in device":"dptrp1 --addr=${DEVICEADDR} --client=${DPT_ID} --key=${DPT_KEY} display-document Document/Printed/${docname}"
         ;;
 esac
