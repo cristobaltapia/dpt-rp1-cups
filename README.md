@@ -13,8 +13,16 @@ To use this you need to first install and configure [dpt-rp1-py](https://github.
 
 # Installation
 
+## Archlinux
+
+```
+yay -S dpt-rp1-cups
+```
+
+## Other distributions
+
 ```bash
-sudo make install
+sudo make DESTDIR=/ install
 ```
 
 The backend assumes that your client-id and key files required by `dpt-rp1-py` are located at `~/.dpapp/deviceid.dat` and `~/.dpapp/privatekey.dat`, respectively.
