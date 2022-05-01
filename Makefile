@@ -10,6 +10,7 @@ ppd/dptrp1.ppd: dptrp1.drv
 install: ppd/dptrp1.ppd
 	install -d $(DESTDIR)usr/share/cups/model/
 	install -d $(DESTDIR)usr/lib/cups/backend/
+	install -d $(DESTDIR)usr/share/pixmaps/
 	install ppd/dptrp1.ppd $(DESTDIR)usr/share/cups/model/
 	install dptrp1.sh $(DESTDIR)usr/lib/cups/backend/dptrp1
 	sed -i 's:dptrp1path=:dptrp1path=$(DPTRP1PATH):g' $(DESTDIR)usr/lib/cups/backend/dptrp1
