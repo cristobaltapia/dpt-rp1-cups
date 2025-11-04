@@ -10,8 +10,8 @@ dptrp1path=
 
 useruuid=$(id -u ${cupsuser})
 
-export DPT_KEY=/home/${cupsuser}/.dpapp/privatekey.dat
-export DPT_ID=/home/${cupsuser}/.dpapp/deviceid.dat
+export DPT_KEY=/home/${cupsuser}/.config/dpt/privatekey.dat
+export DPT_ID=/home/${cupsuser}/.config/dpt/deviceid.dat
 
 # Get the device URL
 DEVICEADDR=$(echo ${DEVICE_URI} | awk -F ":" '{print $2}')

@@ -24,7 +24,7 @@ uninstall:
 
 add:
 	lpadmin -L 'DPT-RP1 WiFi' -D 'DPT-RP1 WiFi Printer' \
-		-p 'DPT-RP1-WiFi' -E -v 'dptrp1:192.168.1.101'
+		-p 'DPT-RP1-WiFi' -E -v 'dptrp1:192.168.1.103'
 
 png:
 	inkscape --export-png=icons/dptrp1.png -d 300 icons/dptrp1.svg
