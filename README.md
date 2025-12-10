@@ -280,7 +280,7 @@ The backend intelligently handles PDFs:
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-Copyright (c) 2021 Cristóbal Tapia
+Copyright (c) 2025 Cristóbal Tapia
 
 ---
 
